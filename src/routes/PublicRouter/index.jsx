@@ -5,7 +5,7 @@ import PrivateContainer from '../../containers/PrivateContainer'
 import LoginScreen from '../../pages/AuthScreens/Login'
 
 const PublicRouter = () => {
-  const logged = false;
+  const logged = true;
 
   return (
     <BrowserRouter>

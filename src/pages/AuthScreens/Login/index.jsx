@@ -1,8 +1,9 @@
 import React from 'react'
+import FormAuthentication from '../../../components/FormAuthentication'
 
 const LoginScreen = () => {
   return (
-    <div>LoginScreen</div>
+    <FormAuthentication />
   )
 }
 
