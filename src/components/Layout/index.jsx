@@ -5,12 +5,12 @@ import "./Layout.css"
 const Layout = ({children}) => {
   return (
     <>
-      <div class="layout__container">
-        <div class="layout__sidebar">
+      <div className="layout__container">
+        <div className="layout__sidebar">
           <div>
-            <img class="layout__logo" src={logoSena} alt="logo" />
+            <img className="layout__logo" src={logoSena} alt="logo" />
           </div>
-          <nav class="layout__navigation">
+          <nav className="layout__navigation">
             <ul>
               <li><a href="/dashboard">Inicio</a></li>
               <li><a href="/doctors">Medicos</a></li>
@@ -25,11 +25,11 @@ const Layout = ({children}) => {
             </ul>
           </nav>
         </div>
-        <div class="layout__sub-container">
-          <header class="layout__header">
+        <div className="layout__sub-container">
+          <header className="layout__header">
             <h2>TITULO SECCION</h2>
           </header>
-          <main class="layout__main">
+          <main className="layout__main">
             {children}
           </main>
         </div>

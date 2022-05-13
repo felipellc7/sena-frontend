@@ -7,7 +7,7 @@ const PrivateRouter = () => {
     <BrowserRouter>
       <Switch>
         {routeList.map(route => (
-          <Route key={route.path} exact {...route} />
+          <Route key={route.name} exact {...route} />
         ))}
         <Redirect to="/dashboard" />
       </Switch>
