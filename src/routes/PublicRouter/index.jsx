@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Switch, BrowserRouter } from "react-router-dom";
 import { PublicRoute, PrivateRoute } from "../RouteType"
 import PrivateContainer from '../../containers/PrivateContainer'
 import LoginScreen from '../../pages/AuthScreens/Login'
+import { StoreContext } from '../../store/context/storeContext';
 
 const PublicRouter = () => {
-  const logged = true;
+  const { isLogged } = useContext(StoreContext)
+  const logged = isLogged;
 
   return (
     <BrowserRouter>

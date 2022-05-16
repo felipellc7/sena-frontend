@@ -52,10 +52,11 @@
   text-decoration: none;
 }
 
-.layout__navigation li a {
+.layout__navigation li a, .layout__navigation li span {
   text-decoration: none;
   color: #fff;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .layout__main {

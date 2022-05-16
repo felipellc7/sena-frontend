@@ -94,11 +94,11 @@ const useDoctorResources = ({
     }
   }
 
-  const onDeleteDoctor = async (body) => {
+  const onDeleteDoctor = async () => {
     try {
       setLoad(true)
       let {data} = await deleteDoctor({
-        data: body,
+        dni: doctor_dni,
         newCancelToken: newCancelToken()
       })
       setDoctor(data)

@@ -7,7 +7,8 @@ export const loginSuccess = (user) => ({ type: type.USER_LOGIN_SUCCESS, payload:
 export const loginError = () => ({ type: type.USER_LOGIN_ERROR });
 
 export const logout = () => {
-  window.localStorage.removeItem("SENA-User")
+  window.localStorage.removeItem("SENA-User");
+  window.location.reload();
   return { type: type.USER_LOGOUT }
 };
 

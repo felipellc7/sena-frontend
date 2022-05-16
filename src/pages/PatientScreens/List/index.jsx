@@ -1,8 +1,9 @@
 import React from 'react'
+import ListPatients from '../../../components/ListPatients'
 
 const PatientList = () => {
   return (
-    <div>PatientList</div>
+    <ListPatients />
   )
 }
 

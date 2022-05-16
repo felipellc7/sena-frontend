@@ -1,6 +1,7 @@
 import React from 'react'
 import logoSena from '../../assets/images/logo.png'
 import "./Layout.css"
+import { logout } from '../../store/actions/storeActions'
 
 const Layout = ({children}) => {
   return (
@@ -21,7 +22,7 @@ const Layout = ({children}) => {
             </ul>
             <ul>
               <li><a href="/settings">Configuración</a></li>
-              <li><a href="/login">Cerrar Sesión</a></li>
+              <li><span onClick={() => logout()}>Cerrar Sesión</span></li>
             </ul>
           </nav>
         </div>

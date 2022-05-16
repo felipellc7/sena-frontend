@@ -1,9 +1,9 @@
 import axiosClient from "../config/axios";
 
-const headers = {'Accept': 'application/json', 'Content-Type': 'application/json'}
+const headers = { "Accept": "application/json", "Content-Type": "application/json" };
 
-export const getDoctors = async ({params, cancelToken}) => {
-  const url = "/doctors";
+export const getPatients = async ({ params, cancelToken }) => {
+  const url = "/patients";
   let result = await axiosClient.get(url, {
     headers,
     params,
@@ -12,8 +12,8 @@ export const getDoctors = async ({params, cancelToken}) => {
   return result;
 }
 
-export const getDoctor = async ({dni, cancelToken}) => {
-  const url = `/doctors/${dni}`;
+export const getPatient = async ({ dni, cancelToken }) => {
+  const url = `/patients/${dni}`;
   let result = await axiosClient.get(url, {
     headers,
     cancelToken
@@ -21,8 +21,8 @@ export const getDoctor = async ({dni, cancelToken}) => {
   return result;
 }
 
-export const createDoctor = async ({data, cancelToken}) => {
-  const url = "/doctors";
+export const createPatient = async ({ data, cancelToken }) => {
+  const url = "/patients";
   let result = await axiosClient.post(url, data, {
     headers,
     cancelToken
@@ -30,8 +30,8 @@ export const createDoctor = async ({data, cancelToken}) => {
   return result;
 }
 
-export const updateDoctor = async ({data, cancelToken}) => {
-  const url = `/doctors/${data.dni}`;
+export const updatePatient = async ({ data, cancelToken }) => {
+  const url = `/patients/${data.dni}`;
   let result = await axiosClient.put(url, data, {
     headers,
     cancelToken
@@ -39,8 +39,8 @@ export const updateDoctor = async ({data, cancelToken}) => {
   return result;
 }
 
-export const deleteDoctor = async ({dni, cancelToken}) => {
-  const url = `/doctors/${dni}`;
+export const deletePatient = async ({ dni, cancelToken }) => {
+  const url = `/patients/${dni}`;
   let result = await axiosClient.delete(url, {
     headers,
     cancelToken
