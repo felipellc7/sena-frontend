@@ -13,3 +13,5 @@ export const logout = () => {
 };
 
 export const setErrorReq = (error) => ({ type: type.SET_ERROR_REQ, payload: error });
+
+export const handleRouteChange = (title) => ({ type: type.HANDLE_ROUTE_CHANGE, payload: title });

@@ -33,6 +33,7 @@
   background-color: #fff;
   padding: 20px;
   color: #000;
+  text-transform: capitalize;
 }
 
 .layout__navigation {

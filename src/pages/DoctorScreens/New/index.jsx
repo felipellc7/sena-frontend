@@ -1,8 +1,9 @@
 import React from 'react'
+import FormDoctor from '../../../components/FormDoctor'
 
 const DoctorNew = () => {
   return (
-    <div>DoctorNew</div>
+    <FormDoctor />
   )
 }
 

@@ -4,3 +4,5 @@ export const USER_LOGIN_ERROR = "USER_LOGIN_ERROR"
 export const USER_LOGOUT = "USER_LOGOUT"
 
 export const SET_ERROR_REQ = "SET_ERROR_REQ"
+
+export const HANDLE_ROUTE_CHANGE = "HANDLE_ROUTE_CHANGE"

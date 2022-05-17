@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import logoSena from '../../assets/images/logo.png'
 import "./Layout.css"
 import { logout } from '../../store/actions/storeActions'
+import { StoreContext } from '../../store/context/storeContext';
 
 const Layout = ({children}) => {
+  const { currentRouteTitle } = useContext(StoreContext)
+
   return (
     <>
       <div className="layout__container">
@@ -28,7 +31,7 @@ const Layout = ({children}) => {
         </div>
         <div className="layout__sub-container">
           <header className="layout__header">
-            <h2>TITULO SECCION</h2>
+            <h2>{currentRouteTitle}</h2>
           </header>
           <main className="layout__main">
             {children}

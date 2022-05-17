@@ -27,6 +27,11 @@ const userReducer = (state, action) => {
         ...state,
         errorReq: action.payload
       };
+    case type.HANDLE_ROUTE_CHANGE:
+      return {
+        ...state,
+        currentRouteTitle: action.payload
+      };
     default:
       return state;
   }
