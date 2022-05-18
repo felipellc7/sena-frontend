@@ -1,24 +1,33 @@
-import React from 'react'
+import React, {useState} from 'react'
 import useDoctorResources from '../../hooks/useDoctorResources'
 import CardUser from '../Shared/CardUser'
 import FilterList from '../Shared/FilterList'
 import "./ListDoctors.css"
 
 const ListDoctors = () => {
-  const { loadingDoctors, doctors } = useDoctorResources({
+  const [filters, setFilters] = useState({})
+  const { loadingDoctors, doctors, setApplyFilters } = useDoctorResources({
     loadDoctors: true,
-    loadDoctor: false
+    loadDoctor: false,
+    searchParams: {
+      from: 1,
+      size: 10,
+      filters
+    }
   })
 
   const onApplyFilters = (e) => {
     e.preventDefault()
+    let full_name = e.target.full_name?.value
+    let dni = e.target.dni?.value
+    let gender = e.target.gender?.value
     const currentFilters = {
-      name: e.target.name?.value,
-      dni: e.target.dni?.value,
-      specialty: e.target.specialty?.value,
-      gender: e.target.gender?.value
+      full_name,
+      dni,
+      gender: gender === "all" ? "" : gender
     }
-    console.log('Aplicar filtros', currentFilters)
+    setFilters(currentFilters)
+    setApplyFilters(true)
   }
 
   return (
@@ -28,7 +37,7 @@ const ListDoctors = () => {
           className="filter_list-doctor-input"
           type="text"
           placeholder="Buscar por nombre"
-          name="name"
+          name="full_name"
         />
         <input
           className="filter_list-doctor-input"
@@ -36,21 +45,21 @@ const ListDoctors = () => {
           placeholder="Buscar por dni"
           name="dni"
         />
-        <p class="labelish">Género:</p>
-        <div class="filter_list-doctor-radio-group">
-          <div class="filter_list-doctor-radio-label">
+        <p className="labelish">Género:</p>
+        <div className="filter_list-doctor-radio-group">
+          <div className="filter_list-doctor-radio-label">
             <label htmlFor="all-gender-filter">
-              <input id="all-gender-filter" name="gender" type="radio" value="all" />
+              <input id="all-gender-filter" name="gender" type="radio" value="all" defaultChecked="true" />
               Ambos
             </label>
           </div>
-          <div class="filter_list-doctor-radio-label">
+          <div className="filter_list-doctor-radio-label">
             <label htmlFor="fem-gender-filter">
               <input id="fem-gender-filter" name="gender" type="radio" value="female" />
               F
             </label>
           </div>
-          <div class="filter_list-doctor-radio-label">
+          <div className="filter_list-doctor-radio-label">
             <label htmlFor="male-gender-filter">
               <input id="male-gender-filter" name="gender" type="radio" value="male" />
               M
@@ -58,10 +67,11 @@ const ListDoctors = () => {
           </div>
         </div>
       </FilterList>
-      {loadingDoctors && <p>Cargando doctores...</p>}
-      {(doctors || []).map((doctor, i) => (
-        <CardUser key={i} data={doctor} entity="doctors" />
-      ))}
+      {loadingDoctors ? <p>Cargando doctores...</p> : (
+        (doctors || []).map((doctor, i) => (
+          <CardUser key={i} data={doctor} entity="doctors" />
+        ))
+      )}
     </>
   )
 }

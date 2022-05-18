@@ -14,10 +14,7 @@ const useDoctorResources = ({
   loadDoctors = false,
   loadDoctor = false,
   doctor_dni,
-  searchParams = {
-    skipRecords: 0,
-    maxRecords: 10
-  },
+  searchParams
 }) => {
   const history = useHistory()
   const { inspectError } = useGetRequestErrors()
@@ -25,6 +22,7 @@ const useDoctorResources = ({
   const [load, setLoad] = useState(false)
   const [doctor, setDoctor] = useState(null)
   const [doctors, setDoctors] = useState(null)
+  const [applyFilters, setApplyFilters] = useState(false)
 
   useEffect(() => {
     loadDoctors && onLoadDoctors()
@@ -32,14 +30,22 @@ const useDoctorResources = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadDoctors, loadDoctor])
 
+  useEffect(() => {
+    if (applyFilters) {
+      onLoadDoctors()
+      setApplyFilters(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [applyFilters])
+
   const onLoadDoctors = async () => {
     try {
       setLoad(true)
-      let {data} = await getDoctors({
+      let {data: {records}} = await getDoctors({
         params: searchParams,
         newCancelToken: newCancelToken()
       })
-      setDoctors(data)
+      setDoctors(records)
       setLoad(false)
     } catch (error) {
       inspectError(error)
@@ -116,7 +122,8 @@ const useDoctorResources = ({
     doctors,
     onCreateDoctor,
     onUpdateDoctor,
-    onDeleteDoctor
+    onDeleteDoctor,
+    setApplyFilters
   }
 }
 
