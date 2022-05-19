@@ -1,14 +1,14 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 
 const PublicRoute = props => {
   const {isAuthenticated, component: Component, ...rest} = props
   return (
     <Route {...rest}
-      component={(props) => (
+      element={(props) => (
         (!isAuthenticated)
           ? (<Component {...props} />)
-          : (<Redirect to="/dashboard" />)
+          : (<Navigate to="/dashboard" />)
       )}
     />
   )

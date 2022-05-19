@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 import Layout from "./../../components/Layout"
 
 const PrivateRoute = (props) => {
@@ -10,7 +10,7 @@ const PrivateRoute = (props) => {
         component={(props) => (
           (isAuthenticated) 
             ? (<Component {...props} />)
-            : (<Redirect to="/login" />)
+            : (<Navigate to="/login" />)
         )}
       />
     </Layout>

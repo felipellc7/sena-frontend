@@ -18,49 +18,49 @@ const routeList = [
   {
     name: "dashboard",
     path: '/dashboard',
-    component: DashboardScreen
+    element: <DashboardScreen />
   },
   // Doctors
   {
     name: "doctorList",
     path: '/doctors',
-    component: DoctorList
+    element: <DoctorList />
   },
   {
     name: "doctorNew",
     path: '/doctors/new',
-    component: DoctorNew
+    element: <DoctorNew />
   },
   {
     name: "doctorEdit",
     path: '/doctors/edit/:doctorDni',
-    component: DoctorEdit
+    element: <DoctorEdit />
   },
   {
     name: "doctorShow",
     path: '/doctors/:doctorDni',
-    component: DoctorShow
+    element: <DoctorShow />
   },
   // Patients
   {
     name: "patientList",
     path: '/patients',
-    component: PatientList
+    element: <PatientList />
   },
   {
     name: "patientNew",
     path: '/patients/new',
-    component: PatientNew
+    element: <PatientNew />
   },
   {
     name: "patientEdit",
     path: '/patients/edit/:patientDni',
-    component: PatientEdit
+    element: <PatientEdit />
   },
   {
     name: "patientShow",
     path: '/patients/:patientDni',
-    component: PatientShow
+    element: <PatientShow />
   }
 ]
 

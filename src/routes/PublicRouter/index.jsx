@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Switch, BrowserRouter } from "react-router-dom";
+import { Routes, BrowserRouter } from "react-router-dom";
 import { PublicRoute, PrivateRoute } from "../RouteType"
 import PrivateContainer from '../../containers/PrivateContainer'
 import LoginScreen from '../../pages/AuthScreens/Login'
@@ -11,10 +11,10 @@ const PublicRouter = () => {
 
   return (
     <BrowserRouter>
-      <Switch>
-        <PublicRoute exact path="/login" component={LoginScreen} isAuthenticated={logged} />
-        <PrivateRoute path="/" component={PrivateContainer} isAuthenticated={logged} />
-      </Switch>
+      <Routes>
+        <PublicRoute exact path="/login" element={<LoginScreen />} isAuthenticated={logged} />
+        <PrivateRoute path="/" element={<PrivateContainer />} isAuthenticated={logged} />
+      </Routes>
     </BrowserRouter>
   )
 }

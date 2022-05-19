@@ -8,7 +8,7 @@ import {
 } from '../services/specialtyServices'
 import useTokenSettings from './useTokenSettings'
 import useGetRequestErrors from './useGetRequestErrors'
-import {useHistory} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
 const useSpecialtyResources = ({
   loadSpecialties = false,
@@ -19,7 +19,7 @@ const useSpecialtyResources = ({
     maxRecords: 10
   }
 }) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const {inspectError} = useGetRequestErrors()
   const {newCancelToken} = useTokenSettings()
   const [load, setLoad] = useState(false)
@@ -101,7 +101,7 @@ const useSpecialtyResources = ({
         newCancelToken: newCancelToken()
       })
       setLoad(false)
-      history.push('/specialties')
+      navigate('/specialties')
     } catch (error) {
       inspectError(error)
       setLoad(false)
