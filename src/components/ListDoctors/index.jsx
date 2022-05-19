@@ -32,7 +32,7 @@ const ListDoctors = () => {
 
   return (
     <>
-      <FilterList onApplyFilters={onApplyFilters}>
+      <FilterList onApplyFilters={onApplyFilters} routeCreate={"/doctors/new"}>
         <input
           className="filter_list-doctor-input"
           type="text"

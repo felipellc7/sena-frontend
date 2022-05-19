@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import "./FilterList.css"
 
-const FilterList = ({children, onApplyFilters}) => {
+const FilterList = ({children, onApplyFilters, routeCreate}) => {
   const [showFilter, setShowFilter] = useState(false)
   const canISeeFilter = showFilter ? "visible" : "hidden"
 
@@ -10,7 +10,7 @@ const FilterList = ({children, onApplyFilters}) => {
       <div className="filter-list_container">
         <div className="filter-list_head">
           <button onClick={() => setShowFilter(!showFilter)}>Filtros</button>
-          <button>Crear</button>
+          <a href={routeCreate}>Crear</a>
         </div>
         <form
           className={`filter-list_content-${canISeeFilter}`}

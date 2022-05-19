@@ -14,7 +14,7 @@ const useDoctorResources = ({
   loadDoctors = false,
   loadDoctor = false,
   doctor_dni,
-  searchParams
+  searchParams = {}
 }) => {
   const history = useHistory()
   const { inspectError } = useGetRequestErrors()
@@ -77,6 +77,7 @@ const useDoctorResources = ({
       })
       setDoctor(data)
       setLoad(false)
+      console.log("creado", data.dni)
       history.push(`/doctors/${data.dni}`)
     } catch (error) {
       inspectError(error)
