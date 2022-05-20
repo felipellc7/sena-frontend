@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import DetailDoctor from '../../../components/DetailDoctor'
 import useDoctorResources from '../../../hooks/useDoctorResources'
 import {useParams} from "react-router-dom"
@@ -9,6 +9,11 @@ const DoctorShow = () => {
     loadDoctor: true,
     doctor_dni: doctorDni
   })
+
+  useEffect(() => {
+    localStorage.setItem('currentRouteTitle', "Detalle de doctor")
+  }, [])
+  
   return (
     <DetailDoctor doctor={doctor} />
   )

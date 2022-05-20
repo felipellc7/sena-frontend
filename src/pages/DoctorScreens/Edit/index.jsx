@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import useDoctorResources from '../../../hooks/useDoctorResources'
 import FormDoctor from '../../../components/FormDoctor'
@@ -9,6 +9,10 @@ const DoctorEdit = () => {
     loadDoctor: true,
     doctor_dni: doctorDni
   })
+
+  useEffect(() => {
+    localStorage.setItem('currentRouteTitle', "Editar Doctor")
+  }, [])
 
   return (
     <FormDoctor doctor={doctor} />

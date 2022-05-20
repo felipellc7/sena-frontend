@@ -1,11 +1,18 @@
-import React, {useContext} from 'react'
+// import React, {useContext} from 'react'
+import {useState, useEffect} from 'react'
 import logoSena from '../../assets/images/logo.png'
 import "./Layout.css"
 import { logout } from '../../store/actions/storeActions'
-import { StoreContext } from '../../store/context/storeContext';
+// import { StoreContext } from '../../store/context/storeContext';
 
 const Layout = ({children}) => {
-  const { currentRouteTitle } = useContext(StoreContext)
+  // const { currentRouteTitle } = useContext(StoreContext)
+  const [currentRouteTitle, setCurrentRouteTitle] = useState("_")
+  const route = localStorage.getItem("currentRouteTitle")
+
+  useEffect(() => {
+    setCurrentRouteTitle(route)
+  }, [route])
 
   return (
     <>
@@ -17,7 +24,7 @@ const Layout = ({children}) => {
           <nav className="layout__navigation">
             <ul>
               <li><a href="/dashboard">Inicio</a></li>
-              <li><a href="/doctors">Medicos</a></li>
+              <li><a href="/doctors">Doctores</a></li>
               <li><a href="/patients">Pacientes</a></li>
               <li><a href="/appointments">Citas</a></li>
               <li><a href="/schedule">Agenda</a></li>

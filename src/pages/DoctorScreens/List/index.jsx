@@ -1,14 +1,11 @@
-import React, { useEffect, useContext} from 'react'
-import { StoreContext } from '../../../store/context/storeContext';
-// import { handleRouteChange } from '../../../store/actions/storeActions';
+import React, { useEffect } from 'react'
 import ListDoctors from '../../../components/ListDoctors'
 
 const DoctorList = () => {
-  const { dispatch } = useContext(StoreContext)
 
   useEffect(() => {
-    // dispatch(handleRouteChange('Doctores'))
-  }, [dispatch])
+    localStorage.setItem('currentRouteTitle', "Doctores")
+  }, [])
 
   return (
     <ListDoctors />
