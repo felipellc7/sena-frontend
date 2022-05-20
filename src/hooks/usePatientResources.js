@@ -39,11 +39,11 @@ const usePatientResources = ({
   const onLoadPatients = async () => {
     try {
       setLoad(true)
-      let {data} = await getPatients({
+      let {data: {records}} = await getPatients({
         params: searchParams,
         newCancelToken: newCancelToken()
       })
-      setPatients(data)
+      setPatients(records)
       setLoad(false)
     } catch (error) {
       inspectError(error)
