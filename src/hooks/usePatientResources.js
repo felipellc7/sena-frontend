@@ -13,22 +13,28 @@ const usePatientResources = ({
   loadPatients = false,
   loadPatient = false,
   patient_dni,
-  searchParams = {
-    skipRecords: 0,
-    maxRecords: 10
-  }
+  searchParams = {}
 }) => {
   const {inspectError} = useGetRequestErrors()
   const {newCancelToken} = useTokenSettings()
   const [load, setLoad] = useState(false)
   const [patient, setPatient] = useState(null)
   const [patients, setPatients] = useState(null)
+  const [applyFilters, setApplyFilters] = useState(false)
 
   useEffect(() => {
     loadPatients && onLoadPatients()
     loadPatient && onLoadPatient()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadPatients, loadPatient])
+
+  useEffect(() => {
+    if (applyFilters) {
+      onLoadPatients()
+      setApplyFilters(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [applyFilters])
 
   const onLoadPatients = async () => {
     try {
@@ -114,7 +120,8 @@ const usePatientResources = ({
     patient,
     onCreatePatient,
     onUpdatePatient,
-    onDeletePatient
+    onDeletePatient,
+    setApplyFilters
   }
 }
 

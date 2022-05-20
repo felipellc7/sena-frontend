@@ -1,4 +1,4 @@
-.filter_list-doctor-input {
+.filter_list-patient-input {
   width: 100%;
   height: 2.5rem;
   margin-bottom: 0.5rem;
@@ -8,7 +8,6 @@
   font-size: 1rem;
   color: #041629;
   border: solid 1px #041629;
-  background-color: #fff;
 }
 
 label {
@@ -16,7 +15,7 @@ label {
   color: #041629;
 }
 
-.filter_list-doctor-radio-label {
+.filter_list-patient-radio-label {
   margin: 0 1.81em 0 0;
 }
 
@@ -25,7 +24,7 @@ label {
 	margin: 0.25rem 0;
 }
 
-.filter_list-doctor-radio-group {
+.filter_list-patient-radio-group {
 	border: none;
 	display: flex;
 	flex-direction: row;
@@ -36,7 +35,7 @@ label {
 
 
 @media screen and (min-width: 768px) {
-  .filter_list-doctor-input {
+  .filter_list-patient-input {
     width: 70%;
   }  
 }
