@@ -13,10 +13,7 @@ const useSpecialtyResources = ({
   loadSpecialties = false,
   loadSpecialty = false,
   specialty_id,
-  searchParams = {
-    skipRecords: 0,
-    maxRecords: 10
-  }
+  searchParams = {}
 }) => {
   const {inspectError} = useGetRequestErrors()
   const {newCancelToken} = useTokenSettings()
@@ -33,11 +30,11 @@ const useSpecialtyResources = ({
   const onLoadSpecialties = async () => {
     try {
       setLoad(true)
-      let {data} = await getSpecialties({
+      let {data: {records}} = await getSpecialties({
         params: searchParams,
         newCancelToken: newCancelToken()
       })
-      setSpecialties(data)
+      setSpecialties(records)
       setLoad(false)
     } catch (error) {
       inspectError(error)

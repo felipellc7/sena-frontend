@@ -24,8 +24,8 @@ const CardUser = ({data, entity}) => {
           <p><span>Sexo: </span>{ gender}</p>
           <p><span>Email: </span>{data?.email}</p>
           <p><span>Teléfono: </span>{data?.phone}</p>
-          {data?.specialty_id && (
-            <p><span>Especialidad: </span>{data?.specialty_id}</p>
+          {data?.specialty?.name && (
+            <p><span>Especialidad: </span>{data?.specialty?.name}</p>
           )}
         </div>
         <div className="card-user__body-navigate">
