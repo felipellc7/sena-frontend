@@ -1,22 +1,34 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import "./FormDoctor.css"
 import useSpecialtyResources from '../../hooks/useSpecialtyResources'
 import useDoctorResources from '../../hooks/useDoctorResources'
 import useForm from '../../hooks/useForm'
-import { defaultValues, validationSchema } from "./config"
+import { defaultValues, validationSchema, fillForm } from "./config"
 import Swal from 'sweetalert2'
 
-const FormDoctor = ({specialty}) => {
-  const { handleSubmit, register, errors } = useForm(validationSchema, {defaultValues})
+const FormDoctor = ({doctor}) => {
+  const { handleSubmit, register, errors, reset } = useForm(
+    validationSchema(doctor), {
+      defaultValues
+    }
+  )
   const { specialties } = useSpecialtyResources({
     loadSpecialties: true,
   })
   const { onCreateDoctor, onUpdateDoctor } = useDoctorResources({})
 
+  useEffect(() => {
+    if (doctor) {
+      fillForm(reset, doctor)
+    }
+    // eslint-disable-next-line
+  }, [doctor])
+
+
   const onSubmitForm = async (data) => {
     try {
       const body = {doctor: data}
-      if (specialty) {
+      if (doctor) {
         await onUpdateDoctor(body)
       } else {
         await onCreateDoctor(body)
@@ -49,7 +61,7 @@ const FormDoctor = ({specialty}) => {
         <div className="doctors__form-container-grid">
           <div className="doctors__form-group">
             <label htmlFor="dni">Numero de Identificación</label>
-            <input {...register("dni")} className="doctors__textbox" type="number" name="dni" id="dni" placeholder="Ingrese numero de identificación" />
+            <input {...register("dni")} disabled={Boolean(doctor)} className="doctors__textbox" type="number" name="dni" id="dni" placeholder="Ingrese numero de identificación" />
           </div>
           <div className="doctors__form-group">
             <label htmlFor="gender">Género</label>
@@ -81,10 +93,10 @@ const FormDoctor = ({specialty}) => {
             <label htmlFor="email">Correo electronico</label>
             <input {...register("email")} className="doctors__textbox" type="email" name="email" id="email" placeholder="Ingrese correo electronico" />
           </div>
-          <div className="doctors__form-group">
+          {Boolean(!doctor) && <div className="doctors__form-group">
             <label htmlFor="password">Contraseña</label>
             <input {...register("password")} className="doctors__textbox" type="password" name="password" id="password" placeholder="Ingrese contraseña" />
-          </div>
+          </div>}
         </div>
         <div className="doctors__form-container-grid">
           <div className="doctors__form-group">

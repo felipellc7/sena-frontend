@@ -8,7 +8,6 @@ import {
 } from "../services/patientServices"
 import useTokenSettings from "./useTokenSettings"
 import useGetRequestErrors from "./useGetRequestErrors"
-import {useHistory} from "react-router-dom"
 
 const usePatientResources = ({
   loadPatients = false,
@@ -19,7 +18,6 @@ const usePatientResources = ({
     maxRecords: 10
   }
 }) => {
-  const history = useHistory()
   const {inspectError} = useGetRequestErrors()
   const {newCancelToken} = useTokenSettings()
   const [load, setLoad] = useState(false)
@@ -71,6 +69,7 @@ const usePatientResources = ({
       })
       setPatient(data)
       setLoad(false)
+      window.location.href = `/patients/${data.dni}`
     } catch (error) {
       inspectError(error)
       setLoad(false)
@@ -86,7 +85,7 @@ const usePatientResources = ({
       })
       setPatient(data)
       setLoad(false)
-      history.push(`/patients/${data.dni}`)
+      window.location.href = `/patients/${data.dni}`
     } catch (error) {
       inspectError(error)
       setLoad(false)
@@ -102,7 +101,7 @@ const usePatientResources = ({
       })
       setPatient(null)
       setLoad(false)
-      history.push("/patients")
+      window.location.href = `/patients`
     } catch (error) {
       inspectError(error)
       setLoad(false)

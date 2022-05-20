@@ -8,7 +8,6 @@ import {
 } from "./../services/doctorServices"
 import useTokenSettings from "./useTokenSettings"
 import useGetRequestErrors from "./useGetRequestErrors";
-import { useHistory } from "react-router-dom";
 
 const useDoctorResources = ({
   loadDoctors = false,
@@ -16,7 +15,6 @@ const useDoctorResources = ({
   doctor_dni,
   searchParams = {}
 }) => {
-  const history = useHistory()
   const { inspectError } = useGetRequestErrors()
   const {newCancelToken} = useTokenSettings()
   const [load, setLoad] = useState(false)
@@ -77,8 +75,7 @@ const useDoctorResources = ({
       })
       setDoctor(data)
       setLoad(false)
-      console.log("creado", data.dni)
-      history.push(`/doctors/${data.dni}`)
+      window.location.href = `/doctors/${data.dni}`
     } catch (error) {
       inspectError(error)
       setLoad(false)
@@ -94,7 +91,7 @@ const useDoctorResources = ({
       })
       setDoctor(data)
       setLoad(false)
-      history.push(`/doctors/${data.dni}`)
+      window.location.href = `/doctors/${data.dni}`
     } catch (error) {
       inspectError(error)
       setLoad(false)
@@ -110,7 +107,7 @@ const useDoctorResources = ({
       })
       setDoctor(data)
       setLoad(false)
-      history.push("/doctors")
+      window.location.href = `/doctors`
     } catch (error) {
       inspectError(error)
       setLoad(false)

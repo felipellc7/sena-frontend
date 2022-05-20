@@ -31,7 +31,7 @@ export const createDoctor = async ({data, cancelToken}) => {
 }
 
 export const updateDoctor = async ({data, cancelToken}) => {
-  const url = `/doctors/${data.dni}`;
+  const url = `/doctors/${data.doctor.dni}`;
   let result = await axiosClient.put(url, data, {
     headers,
     cancelToken
