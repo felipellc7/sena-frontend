@@ -14,6 +14,19 @@ import {
   PatientList,
 } from "./../pages/PatientScreens"
 
+import {
+  SpecialtyEdit,
+  SpecialtyNew,
+  SpecialtyList,
+} from "./../pages/SpecialtyScreens"
+
+import {
+  ConsultingRoomEdit,
+  ConsultingRoomNew,
+  ConsultingRoomShow,
+  ConsultingRoomList,
+} from "./../pages/ConsultingRoomScreens"
+
 const routeList = [
   {
     name: "dashboard",
@@ -61,7 +74,44 @@ const routeList = [
     name: "patientShow",
     path: '/patients/:patientDni',
     component: PatientShow
-  }
+  },
+  // Specialties
+  {
+    name: "specialtyList",
+    path: '/specialties',
+    component: SpecialtyList
+  },
+  {
+    name: "specialtyNew",
+    path: '/specialties/new',
+    component: SpecialtyNew
+  },
+  {
+    name: "specialtyEdit",
+    path: '/specialties/edit/:specialtyId',
+    component: SpecialtyEdit
+  },
+  // Consulting Rooms
+  {
+    name: "consultingRoomList",
+    path: '/consulting_rooms',
+    component: ConsultingRoomList
+  },
+  {
+    name: "consultingRoomNew",
+    path: '/consulting_rooms/new',
+    component: ConsultingRoomNew
+  },
+  {
+    name: "consultingRoomEdit",
+    path: '/consulting_rooms/edit/:consultingRoomId',
+    component: ConsultingRoomEdit
+  },
+  {
+    name: "consultingRoomShow",
+    path: '/consulting_rooms/:consultingRoomId',
+    component: ConsultingRoomShow
+  },
 ]
 
 export default routeList;

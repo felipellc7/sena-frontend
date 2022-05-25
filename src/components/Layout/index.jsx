@@ -28,6 +28,7 @@ const Layout = ({children}) => {
               <li><a href="/patients">Pacientes</a></li>
               <li><a href="/appointments">Citas</a></li>
               <li><a href="/schedule">Agenda</a></li>
+              <li><a href="/specialties">Especialidades</a></li>
               <li><a href="/consulting_rooms">Consultorios</a></li>
             </ul>
             <ul>
