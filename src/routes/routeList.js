@@ -23,7 +23,6 @@ import {
 import {
   ConsultingRoomEdit,
   ConsultingRoomNew,
-  ConsultingRoomShow,
   ConsultingRoomList,
 } from "./../pages/ConsultingRoomScreens"
 
@@ -106,11 +105,6 @@ const routeList = [
     name: "consultingRoomEdit",
     path: '/consulting_rooms/edit/:consultingRoomId',
     component: ConsultingRoomEdit
-  },
-  {
-    name: "consultingRoomShow",
-    path: '/consulting_rooms/:consultingRoomId',
-    component: ConsultingRoomShow
   },
 ]
 

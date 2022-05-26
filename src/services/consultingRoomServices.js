@@ -2,8 +2,8 @@ import axiosClient from "../config/axios";
 
 const headers = { "Accept": "application/json", "Content-Type": "application/json" };
 
-export const getSpecialties = async ({params, cancelToken}) => {
-  const url = "/specialties";
+export const getConsultingRooms = async ({params, cancelToken}) => {
+  const url = "/consulting_rooms";
   let result = await axiosClient.get(url, {
     headers,
     params,
@@ -12,8 +12,8 @@ export const getSpecialties = async ({params, cancelToken}) => {
   return result;
 }
 
-export const getSpecialty = async ({id, cancelToken}) => {
-  const url = `/specialties/${id}`;
+export const getConsultingRoom = async ({id, cancelToken}) => {
+  const url = `/consulting_rooms/${id}`;
   let result = await axiosClient.get(url, {
     headers,
     cancelToken
@@ -21,8 +21,8 @@ export const getSpecialty = async ({id, cancelToken}) => {
   return result;
 }
 
-export const createSpecialty = async ({data, cancelToken}) => {
-  const url = "/specialties";
+export const createConsultingRoom = async ({data, cancelToken}) => {
+  const url = "/consulting_rooms";
   let result = await axiosClient.post(url, data, {
     headers,
     cancelToken
@@ -30,8 +30,8 @@ export const createSpecialty = async ({data, cancelToken}) => {
   return result;
 }
 
-export const updateSpecialty = async ({data, cancelToken}) => {
-  const url = `/specialties/${data.specialty.id}`;
+export const updateConsultingRoom = async ({data, cancelToken}) => {
+  const url = `/consulting_rooms/${data.consulting_room.id}`;
   let result = await axiosClient.put(url, data, {
     headers,
     cancelToken
@@ -39,8 +39,8 @@ export const updateSpecialty = async ({data, cancelToken}) => {
   return result;
 }
 
-export const deleteSpecialty = async ({id, cancelToken}) => {
-  const url = `/specialties/${id}`;
+export const deleteConsultingRoom = async ({id, cancelToken}) => {
+  const url = `/consulting_rooms/${id}`;
   let result = await axiosClient.delete(url, {
     headers,
     cancelToken

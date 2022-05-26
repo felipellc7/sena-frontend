@@ -40,6 +40,11 @@ const FormDoctor = ({doctor}) => {
       })
     } catch (error) {
       console.log(error)
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo guardar el doctor',
+        icon: 'error',
+      })
     }
   }
 

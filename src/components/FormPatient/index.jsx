@@ -36,6 +36,11 @@ const FormPatient = ({patient}) => {
       })
     } catch (error) {
       console.log(error)
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo guardar el paciente',
+        icon: 'error',
+      })
     }
   }
 

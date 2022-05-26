@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react'
+import FormConsultingRoom from '../../../components/FormConsultingRoom'
 
 const ConsultingRoomNew = () => {
 
   useEffect(() => {
-    localStorage.setItem('currentScreen', 'Crear Consultorio')
+    localStorage.setItem('currentRouteTitle', 'Crear Consultorio')
   }, [])
 
   return (
-    <div>ConsultingRoomNew</div>
+    <FormConsultingRoom />
   )
 }
 

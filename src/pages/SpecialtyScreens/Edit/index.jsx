@@ -1,13 +1,21 @@
 import React, {useEffect} from 'react'
+import { useParams } from 'react-router-dom'
+import useSpecialtyResources from '../../../hooks/useSpecialtyResources'
+import FormSpecialty from '../../../components/FormSpecialty'
 
 const SpecialtyEdit = () => {
+  const { specialtyId } = useParams()
+  const { specialty } = useSpecialtyResources({
+    loadSpecialty: true,
+    specialty_id: specialtyId
+  })
 
   useEffect(() => {
-    localStorage.setItem('currentScreen', 'Editar Especialidad')
+    localStorage.setItem('currentRouteTitle', 'Editar Especialidad')
   }, [])
 
   return (
-    <div>SpecialtyEdit</div>
+    <FormSpecialty specialty={specialty} />
   )
 }
 

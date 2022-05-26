@@ -1,49 +1,49 @@
 import {useState, useEffect} from 'react'
 import {
-  getSpecialties,
-  getSpecialty,
-  createSpecialty,
-  updateSpecialty,
-  deleteSpecialty
-} from '../services/specialtyServices'
+  getConsultingRooms,
+  getConsultingRoom,
+  createConsultingRoom,
+  updateConsultingRoom,
+  deleteConsultingRoom
+} from '../services/consultingRoomServices'
 import useTokenSettings from './useTokenSettings'
 import useGetRequestErrors from './useGetRequestErrors'
 
-const useSpecialtyResources = ({
-  loadSpecialties = false,
-  loadSpecialty = false,
-  specialty_id,
+const useConsultingRoomResources = ({
+  loadConsultingRooms = false,
+  loadConsultingRoom = false,
+  consulting_room_id,
   searchParams = {}
 }) => {
   const {inspectError} = useGetRequestErrors()
   const {newCancelToken} = useTokenSettings()
   const [load, setLoad] = useState(false)
-  const [specialty, setSpecialty] = useState(null)
-  const [specialties, setSpecialties] = useState(null)
+  const [consultingRoom, setConsultingRoom] = useState(null)
+  const [consultingRooms, setConsultingRooms] = useState(null)
   const [applyFilters, setApplyFilters] = useState(false)
 
   useEffect(() => {
-    loadSpecialties && onLoadSpecialties()
-    loadSpecialty && onLoadSpecialty()
+    loadConsultingRooms && onLoadConsultingRooms()
+    loadConsultingRoom && onLoadConsultingRoom()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loadSpecialties, loadSpecialty])
+  }, [loadConsultingRooms, loadConsultingRoom])
 
   useEffect(() => {
     if (applyFilters) {
-      onLoadSpecialties()
+      onLoadConsultingRooms()
       setApplyFilters(false)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [applyFilters])
 
-  const onLoadSpecialties = async () => {
+  const onLoadConsultingRooms = async () => {
     try {
       setLoad(true)
-      let {data: {records}} = await getSpecialties({
+      let {data: {records}} = await getConsultingRooms({
         params: searchParams,
         newCancelToken: newCancelToken()
       })
-      setSpecialties(records)
+      setConsultingRooms(records)
       setLoad(false)
     } catch (error) {
       inspectError(error)
@@ -51,14 +51,14 @@ const useSpecialtyResources = ({
     }
   }
 
-  const onLoadSpecialty = async () => {
+  const onLoadConsultingRoom = async () => {
     try {
       setLoad(true)
-      let {data} = await getSpecialty({
-        id: specialty_id,
+      let {data} = await getConsultingRoom({
+        id: consulting_room_id,
         newCancelToken: newCancelToken()
       })
-      setSpecialty(data)
+      setConsultingRoom(data)
       setLoad(false)
     } catch (error) {
       inspectError(error)
@@ -66,47 +66,48 @@ const useSpecialtyResources = ({
     }
   }
 
-  const onCreateSpecialty = async (body) => {
+  const onCreateConsultingRoom = async (body) => {
     try {
       setLoad(true)
-      let {data} = await createSpecialty({
+      let {data} = await createConsultingRoom({
         data: body,
         newCancelToken: newCancelToken()
       })
-      setSpecialty(data)
+      setConsultingRoom(data)
       setLoad(false)
-      window.location.href = `/specialties/${data.id}`
+      window.location.href = `/consulting_rooms`
     } catch (error) {
       inspectError(error)
       setLoad(false)
     }
   }
 
-  const onUpdateSpecialty = async (body) => {
+  const onUpdateConsultingRoom = async (body) => {
     try {
       setLoad(true)
-      let {data} = await updateSpecialty({
+      let {data} = await updateConsultingRoom({
+        id: consulting_room_id,
         data: body,
         newCancelToken: newCancelToken()
       })
-      setSpecialty(data)
+      setConsultingRoom(data)
       setLoad(false)
-      window.location.href = `/specialties`
+      window.location.href = `/consulting_rooms`
     } catch (error) {
       inspectError(error)
       setLoad(false)
     }
   }
 
-  const onDeleteSpecialty = async () => {
+  const onDeleteConsultingRoom = async () => {
     try {
       setLoad(true)
-      await deleteSpecialty({
-        id: specialty_id,
+      await deleteConsultingRoom({
+        id: consulting_room_id,
         newCancelToken: newCancelToken()
       })
       setLoad(false)
-      window.location.href = `/specialties`
+      window.location.href = `/consulting_rooms`
     } catch (error) {
       inspectError(error)
       setLoad(false)
@@ -114,14 +115,14 @@ const useSpecialtyResources = ({
   }
 
   return {
-    loadingSpecialties: load,
-    specialty,
-    specialties,
-    onCreateSpecialty,
-    onUpdateSpecialty,
-    onDeleteSpecialty,
+    loadingConsultingRooms: load,
+    consultingRoom,
+    consultingRooms,
+    onCreateConsultingRoom,
+    onUpdateConsultingRoom,
+    onDeleteConsultingRoom,
     setApplyFilters
   }
 }
 
-export default useSpecialtyResources
+export default useConsultingRoomResources

@@ -1,0 +1,74 @@
+.consulting_rooms__content {
+  width: 100%;
+}
+
+.consulting_rooms__form {
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.consulting_rooms__form-container-grid {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.consulting_rooms__form-group {
+  width: 45%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  color: #041629;
+  font-weight: 600;
+}
+
+.consulting_rooms__form-group input {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.consulting_rooms__textbox {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  padding: 0 10px;
+  background-color: #fff;
+  border: 1px solid #041629;
+}
+
+.consulting_rooms__button {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #041629;
+  background-color: #041629;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .consulting_rooms__form {
+    width: 100%;
+  }
+
+  .consulting_rooms__form-container-grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .consulting_rooms__form-group {
+    width: 100%;
+  }
+}
