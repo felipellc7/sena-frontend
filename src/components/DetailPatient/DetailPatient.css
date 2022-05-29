@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  text-transform: capitalize;
 }
 
 .detail-patient__container-left, .detail-patient__container-right {

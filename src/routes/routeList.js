@@ -33,6 +33,13 @@ import {
   ScheduleList,
 } from "./../pages/ScheduleScreens"
 
+import {
+  AppointmentEdit,
+  AppointmentNew,
+  AppointmentShow,
+  AppointmentList,
+} from "./../pages/AppointmentScreens"
+
 const routeList = [
   {
     name: "dashboard",
@@ -133,6 +140,27 @@ const routeList = [
     name: "scheduleShow",
     path: '/schedules/:scheduleId',
     component: ScheduleShow
+  },
+  // Appointments
+  {
+    name: "appointmentList",
+    path: '/appointments',
+    component: AppointmentList
+  },
+  {
+    name: "appointmentNew",
+    path: '/appointments/new',
+    component: AppointmentNew
+  },
+  {
+    name: "appointmentEdit",
+    path: '/appointments/edit/:appointmentId',
+    component: AppointmentEdit
+  },
+  {
+    name: "appointmentShow",
+    path: '/appointments/:appointmentId',
+    component: AppointmentShow
   },
 ]
 

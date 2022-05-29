@@ -1,4 +1,4 @@
-.detail-doctor {
+.detail-appointment {
   width: 100%;
   height: 100%;
   display: flex;
@@ -8,7 +8,7 @@
   text-transform: capitalize;
 }
 
-.detail-doctor__container-left, .detail-doctor__container-right {
+.detail-appointment__container-left, .detail-appointment__container-right {
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,7 +17,7 @@
   align-items: flex-start;
 }
 
-.detail-doctor__group {
+.detail-appointment__group {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -25,15 +25,15 @@
   align-items: flex-start;
 }
 
-.detail-doctor__group-item {
+.detail-appointment__group-item {
   padding: 0.5rem 0;
 }
 
 @media screen and (min-width: 768px) {
-  .detail-doctor {
+  .detail-appointment {
     flex-direction: row;
   }
-  .detail-doctor__container-left, .detail-doctor__container-right {
+  .detail-appointment__container-left, .detail-appointment__container-right {
     width: 50%;
   }
 }
