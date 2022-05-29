@@ -1,0 +1,93 @@
+.filter_list-schedule-input {
+  width: 100%;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #041629;
+  border: solid 1px #041629;
+}
+
+.card-schedule__container {
+  width: 100%;
+  min-height: 100px;
+  margin: 0.8rem 0;
+  background-color: #fff;
+  border: 1px solid #041629;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-schedule__body-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+.card-schedule__body-navigate {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px;
+}
+
+.card-schedule__body-content__title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0;
+  padding: 5px 0;
+  text-transform: capitalize;
+}
+
+label {
+  display: block;
+  color: #041629;
+}
+
+.filter_list-schedule-radio-label {
+  margin: 0 1.81em 0 0;
+}
+
+.labelish {
+	color:#041629;
+	margin: 0.25rem 0;
+}
+
+.filter_list-schedule-radio-group {
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	break-before: always;
+	margin: 0 0 1em 0;
+}
+
+@media screen and (min-width: 768px) {
+  .filter_list-schedule-input {
+    width: 70%;
+  }
+  .card-schedule__container {
+    width: 70%;
+    flex-direction: row;
+    margin: 0.5rem 0;
+  }
+  .card-schedule__body-content {
+    width: 60%;
+    border-right: 1px solid #041629;
+  }
+  .card-schedule__body-navigate {
+    width: 40%;
+  }
+}

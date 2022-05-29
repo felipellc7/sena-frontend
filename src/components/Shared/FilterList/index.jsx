@@ -18,6 +18,7 @@ const FilterList = ({children, onApplyFilters, routeCreate}) => {
         >
           {children}
           <div className="filter-list_footer">
+            <button type="reset">Limpiar</button>
             <button type="submit">Aplicar</button>
           </div>
         </form>

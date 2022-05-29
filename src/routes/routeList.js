@@ -26,6 +26,13 @@ import {
   ConsultingRoomList,
 } from "./../pages/ConsultingRoomScreens"
 
+import {
+  ScheduleEdit,
+  ScheduleNew,
+  ScheduleShow,
+  ScheduleList,
+} from "./../pages/ScheduleScreens"
+
 const routeList = [
   {
     name: "dashboard",
@@ -105,6 +112,27 @@ const routeList = [
     name: "consultingRoomEdit",
     path: '/consulting_rooms/edit/:consultingRoomId',
     component: ConsultingRoomEdit
+  },
+  // Schedules
+  {
+    name: "scheduleList",
+    path: '/schedules',
+    component: ScheduleList
+  },
+  {
+    name: "scheduleNew",
+    path: '/schedules/new',
+    component: ScheduleNew
+  },
+  {
+    name: "scheduleEdit",
+    path: '/schedules/edit/:scheduleId',
+    component: ScheduleEdit
+  },
+  {
+    name: "scheduleShow",
+    path: '/schedules/:scheduleId',
+    component: ScheduleShow
   },
 ]
 
