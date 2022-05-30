@@ -13,8 +13,7 @@ const useTokenSettings = () => {
   }
 
   useEffect(() => {
-    // user?.access_token && tokenAuth(user?.access_token)
-    tokenAuth("eyJhbGciOiJIUzI1NiJ9.eyJmaXJzdF9uYW1lIjoiQWxiZXJ0byIsImxhc3RfbmFtZSI6IlBlcmV6IiwiZnVsbF9uYW1lIjoiQWxiZXJ0byBQZXJleiIsImRuaSI6IjExNDMyMjIzMzMiLCJlbWFpbCI6ImFwZXJlekBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTI0MjEwOTJ9.KP7gwRp_S84B9j5BipoIBSLDgav6XdIeJ_CUzLLr9lc")
+    user?.token && tokenAuth(user?.token)
   }, [user])
 
   useEffect(
