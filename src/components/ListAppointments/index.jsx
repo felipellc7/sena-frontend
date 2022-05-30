@@ -97,6 +97,7 @@ const CardAppointment = ({data}) => {
           </p>
           <hr />
           <p><span>Fecha: </span>{data?.schedule?.date}</p>
+          <p><span>Consultorio: </span>{data?.schedule?.consulting_room?.name}</p>
           <p><span>Especialidad: </span>{data?.doctor?.specialty?.name}</p>
           <p><span>Estado: </span>{ translateStatus(data?.status) }</p>
         </div>
