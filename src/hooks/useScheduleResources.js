@@ -75,7 +75,7 @@ const useScheduleResources = ({
       })
       setSchedule(data)
       setLoad(false)
-      window.location.href = `/schedules/${data.id}`
+      window.location.href = `/schedules`
     } catch (error) {
       inspectError(error)
       setLoad(false)
