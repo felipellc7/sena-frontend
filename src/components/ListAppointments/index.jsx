@@ -2,15 +2,7 @@ import React, {useState} from 'react'
 import useAppointmentResources from '../../hooks/useAppointmentResources'
 import FilterList from '../Shared/FilterList'
 import "./ListAppointments.css"
-
-const statusses = {
-  reserved: "Reservado",
-  confirmed: "Confirmado",
-  in_progress: "En progreso",
-  canceled: "Cancelado",
-  closed: "Cerrada",
-  rescheduled: "Reagendado"
-}
+import { statusses } from '../../helpers/statusHelper'
 
 const ListAppointments = () => {
   const [filters, setFilters] = useState({})

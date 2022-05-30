@@ -3,6 +3,7 @@ import useScheduleResources from '../../hooks/useScheduleResources'
 import FilterList from '../Shared/FilterList'
 import "./ListSchedules.css"
 import ButtonsDetail from '../Shared/ButtonsDetail'
+import { displayTime } from '../../helpers/dateTimeHelper'
 
 const ListSchedules = () => {
   const [filters, setFilters] = useState({})
@@ -90,20 +91,6 @@ const CardSchedule = ({schedule}) => {
   const { onDeleteSchedule } = useScheduleResources({
     schedule_id: schedule.id,
   })
-
-  const displayTime = scheduleTime => {
-    try {
-      const time = new Date(scheduleTime)
-      const hour = time.getUTCHours()
-      const minutes = time.getUTCMinutes()
-      const ampm = hour >= 12 ? 'PM' : 'AM'
-      const hourFormatted = hour % 12 || 12
-      const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes
-      return `${hourFormatted}:${minutesFormatted} ${ampm}`  
-    } catch (error) {
-      return "N/D"
-    }
-  }
 
   return (
     <div className="card-schedule__container">

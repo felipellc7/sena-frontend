@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import {displayTime} from '../../helpers/dateTimeHelper'
 
 export const validationSchema = yup.object({
   id: yup.string(),
@@ -18,17 +19,4 @@ export const fillForm = (reset, schedule) => {
     ...schedule,
     time: displayTime(schedule.time),
   })
-}
-
-const displayTime = scheduleTime => {
-  try {
-    const time = new Date(scheduleTime)
-    const hour = time.getUTCHours()
-    const minutes = time.getUTCMinutes()
-    const hoursFormatted = hour < 10 ? `0${hour}` : hour
-    const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes
-    return `${hoursFormatted}:${minutesFormatted}`
-  } catch (error) {
-    return "N/D"
-  }
 }

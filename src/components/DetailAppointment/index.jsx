@@ -2,6 +2,8 @@ import React from 'react'
 import "./DetailAppointment.css"
 import ButtonsDetail from '../Shared/ButtonsDetail'
 import useAppointmentResources from '../../hooks/useAppointmentResources'
+import {displayTime} from '../../helpers/dateTimeHelper'
+import {statusses} from '../../helpers/statusHelper'
 
 const DetailAppointment = ({appointment}) => {
   const { onDeleteAppointment } = useAppointmentResources({
@@ -38,6 +40,12 @@ const DetailAppointment = ({appointment}) => {
               <p>{appointment?.patient?.dni}</p>
             </div>
           </div>
+          <div className="detail-appointment__group">
+            <div className="detail-appointment__group-item">
+              <h4>Codigo de agenda</h4>
+              <p>{appointment?.schedule?.code}</p>
+            </div>
+          </div>
         </div>
         <div className="detail-appointment__container-left">
           <h2>Otra Informacion</h2>
@@ -56,11 +64,11 @@ const DetailAppointment = ({appointment}) => {
             </div>
             <div className="detail-appointment__group-item">
               <h4>Hora</h4>
-              <p>{appointment?.schedule?.time}</p>
+              <p>{displayTime(appointment?.schedule?.time)}</p>
             </div>
             <div className="detail-appointment__group-item">
               <h4>Estado</h4>
-              <p>{appointment?.status}</p>
+              <p>{statusses[appointment?.status]}</p>
             </div>
             <div className="detail-appointment__group">
             <div className="detail-appointment__group-item">
